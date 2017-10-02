@@ -1,0 +1,1384 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{838F53E0-E39F-4839-BE46-34190AF16B46}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Financial_Journal</RootNamespace>
+    <AssemblyName>Personal Banker</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Objects\Icons8-Ios7-Finance-Money-Box.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>1D4D9192992875975C0F5A77936FC090FFD14A03</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Financial Journal_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto">
+      <HintPath>..\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=1.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Logging.1.1.2\lib\net451\Microsoft.IdentityModel.Logging.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=5.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Tokens.5.1.2\lib\net451\Microsoft.IdentityModel.Tokens.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions.Desktop, Version=1.0.168.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.Desktop.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PdfSharp">
+      <HintPath>..\..\..\ERP - Actual\ExcoPricingTool\bin\Release\PdfSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Charting">
+      <HintPath>..\..\..\ERP - Actual\ExcoPricingTool\bin\Release\PdfSharp.Charting.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=5.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.5.1.2\lib\net451\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Deployment">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Twilio, Version=5.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Twilio.5.4.1\lib\net451\Twilio.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="unirest-net, Version=1.0.4.3, Culture=neutral, PublicKeyToken=1f37cfb64cbec918, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unirest-API.1.0.7.6\lib\unirest-net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebDriver, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.WebDriver.3.0.1\lib\net40\WebDriver.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebDriver.Support, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.Support.3.0.1\lib\net40\WebDriver.Support.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WinSCPnet, Version=1.3.7.7441, Culture=neutral, PublicKeyToken=2271ec4a3c56d0bf, processorArchitecture=MSIL">
+      <HintPath>..\packages\WinSCP.5.9.5\lib\WinSCPnet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Financial Tools\Budget Allocation\BudgetAllocation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Financial Tools\Budget Allocation\BudgetAllocation.Designer.cs">
+      <DependentUpon>BudgetAllocation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Financial Tools\Budget Allocation\BudgetEntry.cs" />
+    <Compile Include="Financial Tools\Budget Allocation\AddNewMonth.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Financial Tools\Budget Allocation\AddNewMonth.Designer.cs">
+      <DependentUpon>AddNewMonth.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Financial Tools\Budget Allocation\BudgetSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Financial Tools\Budget Allocation\BudgetSelector.Designer.cs">
+      <DependentUpon>BudgetSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Financial Tools\Budget Allocation\ExcelGenerator_Budget.cs" />
+    <Compile Include="Financial Tools\Budget Allocation\MonthlyAmountDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Financial Tools\Budget Allocation\MonthlyAmountDialog.Designer.cs">
+      <DependentUpon>MonthlyAmountDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Financial Tools\Budget Allocation\MonthSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Financial Tools\Budget Allocation\MonthSelector.Designer.cs">
+      <DependentUpon>MonthSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Financial Tools\Budget Allocation\PDFGenerator_Budget.cs" />
+    <Compile Include="Financial Tools\Budget Allocation\PredictModeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Financial Tools\Budget Allocation\PredictModeDialog.Designer.cs">
+      <DependentUpon>PredictModeDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Financial Tools\Budget Allocation\ExportSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Financial Tools\Budget Allocation\ExportSelector.Designer.cs">
+      <DependentUpon>ExportSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Financial Tools\Payments\Cash\CashView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Financial Tools\Payments\Cash\CashView.Designer.cs">
+      <DependentUpon>CashView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Financial Tools\Payments\Cash\CashHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Financial Tools\Payments\Cash\CashHistory.Designer.cs">
+      <DependentUpon>CashHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Financial Tools\Payments\Cash\TransactionDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Financial Tools\Payments\Cash\TransactionDialog.Designer.cs">
+      <DependentUpon>TransactionDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\OrderEntrySettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\OrderEntrySettings.Designer.cs">
+      <DependentUpon>OrderEntrySettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Financial Tools\Payments\Cash\Cash.cs" />
+    <Compile Include="Objects\Diagnostics.cs" />
+    <Compile Include="Mobile Sync\ManageAssociations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mobile Sync\ManageAssociations.Designer.cs">
+      <DependentUpon>ManageAssociations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Purchases\SortFilter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\Purchases\SortFilter.Designer.cs">
+      <DependentUpon>SortFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Purchases\OrderFilter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\Purchases\OrderFilter.Designer.cs">
+      <DependentUpon>OrderFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Purchases\NewPurchases.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\Purchases\NewPurchases.Designer.cs">
+      <DependentUpon>NewPurchases.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\Cloud_Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\Cloud_Settings.Designer.cs">
+      <DependentUpon>Cloud_Settings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\Sneak_Peak.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\Sneak_Peak.Designer.cs">
+      <DependentUpon>Sneak_Peak.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Miscellaneous Forms\Alert_Box.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Miscellaneous Forms\Alert_Box.Designer.cs">
+      <DependentUpon>Alert_Box.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Miscellaneous Forms\Input_Box_Small.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Miscellaneous Forms\Input_Box_Small.Designer.cs">
+      <DependentUpon>Input_Box_Small.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mobile Sync\SyncSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mobile Sync\SyncSettings.Designer.cs">
+      <DependentUpon>SyncSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mobile Sync\SyncSynonym.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mobile Sync\SyncSynonym.Designer.cs">
+      <DependentUpon>SyncSynonym.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mobile Sync\MobileSync.cs" />
+    <Compile Include="Mobile Sync\MobileSyncDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mobile Sync\MobileSyncDialog.Designer.cs">
+      <DependentUpon>MobileSyncDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\Cloud_Services.cs" />
+    <Compile Include="Objects\Location.cs" />
+    <Compile Include="Objects\HSLColor.cs" />
+    <Compile Include="Objects\JSON.cs" />
+    <Compile Include="Objects\TaskBarCheck.cs" />
+    <Compile Include="Settings\Expiration_Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\Expiration_Settings.Designer.cs">
+      <DependentUpon>Expiration_Settings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\Refund_Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\Refund_Settings.Designer.cs">
+      <DependentUpon>Refund_Settings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Personal Tools\Asset Manager\Asset_Item.cs" />
+    <Compile Include="Personal Tools\Asset Manager\Asset_Manager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Personal Tools\Asset Manager\Asset_Manager.Designer.cs">
+      <DependentUpon>Asset_Manager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Personal Tools\Asset Manager\Add_Asset.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Personal Tools\Asset Manager\Add_Asset.Designer.cs">
+      <DependentUpon>Add_Asset.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Personal Tools\Asset Manager\Asset_Import.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Personal Tools\Asset Manager\Asset_Import.Designer.cs">
+      <DependentUpon>Asset_Import.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Personal Tools\Asset Manager\Asset_Selling.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Personal Tools\Asset Manager\Asset_Selling.Designer.cs">
+      <DependentUpon>Asset_Selling.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Personal Tools\Calendar\Email_Add_Recipient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Personal Tools\Calendar\Email_Add_Recipient.Designer.cs">
+      <DependentUpon>Email_Add_Recipient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Personal Tools\Calendar\Date_Change_Dialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Personal Tools\Calendar\Date_Change_Dialog.Designer.cs">
+      <DependentUpon>Date_Change_Dialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Personal Tools\Contacts\Contacts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Personal Tools\Contacts\Contacts.Designer.cs">
+      <DependentUpon>Contacts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Personal Tools\Contacts\ContactImpExp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Personal Tools\Contacts\ContactImpExp.Designer.cs">
+      <DependentUpon>ContactImpExp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Personal Tools\Contacts\Contact_Filter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Personal Tools\Contacts\Contact_Filter.Designer.cs">
+      <DependentUpon>Contact_Filter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Personal Tools\Contacts\vCardParser.cs" />
+    <Compile Include="Financial Tools\Investments\Investment_History.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Financial Tools\Investments\Investment_History.Designer.cs">
+      <DependentUpon>Investment_History.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Financial Tools\Investments\Investment.cs" />
+    <Compile Include="Financial Tools\Investments\Investment_Visualizer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Financial Tools\Investments\Investment_Visualizer.Designer.cs">
+      <DependentUpon>Investment_Visualizer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Financial Tools\Payments\Payment.cs" />
+    <Compile Include="Settings\Quick_Links.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\Quick_Links.Designer.cs">
+      <DependentUpon>Quick_Links.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Personal Tools\Calendar\Add_Edit_Calendar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Personal Tools\Calendar\Email_Calendar_Range.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Personal Tools\Calendar\Email_Calendar_Range.Designer.cs">
+      <DependentUpon>Email_Calendar_Range.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Personal Tools\Calendar\Export_Filter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Personal Tools\Calendar\Export_Filter.Designer.cs">
+      <DependentUpon>Export_Filter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Personal Tools\Calendar\Print_Calendar_Range.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Personal Tools\Calendar\Print_Calendar_Range.Designer.cs">
+      <DependentUpon>Print_Calendar_Range.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Personal Tools\Calendar\Export_Calendar_Range.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Personal Tools\Calendar\Export_Calendar_Range.Designer.cs">
+      <DependentUpon>Export_Calendar_Range.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Personal Tools\Calendar\Calendar_Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Personal Tools\Calendar\Calendar_Settings.Designer.cs">
+      <DependentUpon>Calendar_Settings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Personal Tools\Calendar\Select_Agenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Personal Tools\Calendar\Select_Agenda.Designer.cs">
+      <DependentUpon>Select_Agenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Financial Tools\Investments\Investment_View.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Financial Tools\Investments\Investment_View.Designer.cs">
+      <DependentUpon>Investment_View.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Financial Tools\Investments\With_Dep_Box.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Financial Tools\Investments\With_Dep_Box.Designer.cs">
+      <DependentUpon>With_Dep_Box.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Financial Tools\Investments\Investments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Financial Tools\Investments\Investments.Designer.cs">
+      <DependentUpon>Investments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Financial Tools\Salary Manual\Deposit_Input_Box.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Financial Tools\Salary Manual\Deposit_Input_Box.Designer.cs">
+      <DependentUpon>Deposit_Input_Box.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Financial Tools\Salary Manual\Manage_AutoDeposit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Financial Tools\Salary Manual\Manage_AutoDeposit.Designer.cs">
+      <DependentUpon>Manage_AutoDeposit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Financial Tools\Salary Manual\Manage_Prev_Period.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Financial Tools\Salary Manual\Manage_Prev_Period.Designer.cs">
+      <DependentUpon>Manage_Prev_Period.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Financial Tools\Salary Manual\Manage_Prev_Period_Range_Selector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Financial Tools\Salary Manual\Manage_Prev_Period_Range_Selector.Designer.cs">
+      <DependentUpon>Manage_Prev_Period_Range_Selector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Financial Tools\Salary Manual\Deposit_Paycheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Financial Tools\Salary Manual\Deposit_Paycheck.Designer.cs">
+      <DependentUpon>Deposit_Paycheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Financial Tools\Salary Manual\Manage_Companies.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Financial Tools\Salary Manual\Manage_Companies.Designer.cs">
+      <DependentUpon>Manage_Companies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Miscellaneous Forms\Loading_Form.Designer.cs">
+      <DependentUpon>Loading_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Miscellaneous Forms\Loading_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Financial Tools\Salary Manual\CustomIncome.cs" />
+    <Compile Include="Financial Tools\Salary Manual\Salary_Manual.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Financial Tools\Salary Manual\Salary_Manual.Designer.cs">
+      <DependentUpon>Salary_Manual.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Financial Tools\GC_Manager.Designer.cs">
+      <DependentUpon>GC_Manager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Financial Tools\GC_Manager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Personal Tools\Hobby\Import_Phantom.Designer.cs">
+      <DependentUpon>Import_Phantom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Personal Tools\Hobby\Import_Phantom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Miscellaneous Forms\Tracking.Designer.cs">
+      <DependentUpon>Tracking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Miscellaneous Forms\Tracking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Personal Tools\Hobby\Hobby_MGMT_Settings.Designer.cs">
+      <DependentUpon>Hobby_MGMT_Settings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Personal Tools\Hobby\Hobby_MGMT_Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Financial Tools\Recurring Expense\Manage_AutoDebit.Designer.cs">
+      <DependentUpon>Manage_AutoDebit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Financial Tools\Recurring Expense\Manage_AutoDebit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Financial Tools\Payments\Manage_Payment.Designer.cs">
+      <DependentUpon>Manage_Payment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Financial Tools\Payments\Manage_Payment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Personal Tools\Calendar\Copy of Form_Template.Designer.cs">
+      <DependentUpon>Add_Edit_Calendar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\Authentication_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\Authentication_Form.Designer.cs">
+      <DependentUpon>Authentication_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\Company.cs" />
+    <Compile Include="Objects\Encryption.cs" />
+    <Compile Include="Objects\FadeControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Objects\Load_Functionalities.cs" />
+    <Compile Include="Objects\MemberwiseClone.cs" />
+    <Compile Include="Objects\Save_Functionalities.cs" />
+    <Compile Include="Financial Tools\Savings\Savings_Structure.cs" />
+    <Compile Include="Objects\Shipment_Tracking.cs" />
+    <Compile Include="Settings\Alerts_And_Windows.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\Alerts_And_Windows.Designer.cs">
+      <DependentUpon>Alerts_And_Windows.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\Backup_Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\Backup_Settings.Designer.cs">
+      <DependentUpon>Backup_Settings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\Personal_Information.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\Personal_Information.Designer.cs">
+      <DependentUpon>Personal_Information.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\Security.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\Security.Designer.cs">
+      <DependentUpon>Security.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Personal Tools\Calendar\Calendar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Personal Tools\Calendar\Calendar.Designer.cs">
+      <DependentUpon>Calendar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Personal Tools\Agenda\Agenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Personal Tools\Agenda\Agenda.Designer.cs">
+      <DependentUpon>Agenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Personal Tools\Hobby\Hobby_Management.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Personal Tools\Hobby\Hobby_Management.Designer.cs">
+      <DependentUpon>Hobby_Management.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Financial Tools\Savings\Savings Helper.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Financial Tools\Savings\Savings Helper.Designer.cs">
+      <DependentUpon>Savings Helper.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Personal Tools\SMS Alerts\Add_SMS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Personal Tools\SMS Alerts\Add_SMS.Designer.cs">
+      <DependentUpon>Add_SMS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Personal Tools\SMS Alerts\SMSAlert.cs" />
+    <Compile Include="Personal Tools\SMS Alerts\SMS_Alert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Personal Tools\SMS Alerts\SMS_Alert.Designer.cs">
+      <DependentUpon>SMS_Alert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Analysis_Report.Designer.cs">
+      <DependentUpon>Analysis_Report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Analysis_Report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Financial Tools\Accounts_RP.Designer.cs">
+      <DependentUpon>Accounts_RP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Financial Tools\Accounts_RP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Financial Tools\Payments\Payment_Information.Designer.cs">
+      <DependentUpon>Payment_Information.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Financial Tools\Payments\Payment_Information.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\Cash Flow Spreadsheet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\Cash Flow Spreadsheet.Designer.cs">
+      <DependentUpon>Cash Flow Spreadsheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Custom Category Spreadsheet\CustomCategorySpreadsheet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\Custom Category Spreadsheet\CustomCategorySpreadsheet.Designer.cs">
+      <DependentUpon>CustomCategorySpreadsheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Custom Category Spreadsheet\CategoryGrouper.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\Custom Category Spreadsheet\CategoryGrouper.Designer.cs">
+      <DependentUpon>CategoryGrouper.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Custom Category Spreadsheet\GroupedCategory.cs" />
+    <Compile Include="Reports\Item_Summary_Spreadsheet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\Item_Summary_Spreadsheet.Designer.cs">
+      <DependentUpon>Item_Summary_Spreadsheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Online_Orders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\Online_Orders.Designer.cs">
+      <DependentUpon>Online_Orders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visuals\Categorical_Visualizer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visuals\Categorical_Visualizer.Designer.cs">
+      <DependentUpon>Categorical_Visualizer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visuals\Spending Timeline\Add_Shopping_List_Item.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visuals\Spending Timeline\Add_Shopping_List_Item.Designer.cs">
+      <DependentUpon>Add_Shopping_List_Item.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visuals\Spending Timeline\Timeline_Shopping_List.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visuals\Spending Timeline\Timeline_Shopping_List.Designer.cs">
+      <DependentUpon>Timeline_Shopping_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visuals\Spending Timeline\Item_Timeline.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visuals\Spending Timeline\Item_Timeline.Designer.cs">
+      <DependentUpon>Item_Timeline.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visuals\Wealth Visualizer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visuals\Wealth Visualizer.Designer.cs">
+      <DependentUpon>Wealth Visualizer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visuals\Tier_Visualizer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visuals\Tier_Visualizer.Designer.cs">
+      <DependentUpon>Tier_Visualizer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visuals\Month-Over-Month_Graph.Designer.cs">
+      <DependentUpon>Month-Over-Month_Graph.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visuals\Month-Over-Month_Graph.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Financial Tools\Expenditure_Warnings.Designer.cs">
+      <DependentUpon>Expenditure_Warnings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Financial Tools\Expenditure_Warnings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Miscellaneous Forms\Start_Stop_Dialog.Designer.cs">
+      <DependentUpon>Start_Stop_Dialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Miscellaneous Forms\Start_Stop_Dialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visuals\Expenditures.Designer.cs">
+      <DependentUpon>Expenditures.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visuals\Expenditures.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\Purchases\Purchases.Designer.cs">
+      <DependentUpon>Purchases.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Purchases\Purchases.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Financial Tools\Recurring Expense\Expenses.cs" />
+    <Compile Include="Financial Tools\Recurring Expense\Recurring_Expenses.Designer.cs">
+      <DependentUpon>Recurring_Expenses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Financial Tools\Recurring Expense\Recurring_Expenses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Financial Tools\Salary_Calculator.Designer.cs">
+      <DependentUpon>Salary_Calculator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Financial Tools\Salary_Calculator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Miscellaneous Forms\Yes_No_Dialog.Designer.cs">
+      <DependentUpon>Yes_No_Dialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Miscellaneous Forms\Yes_No_Dialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\Refund_Report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\Copy of Form_Template.Designer.cs">
+      <DependentUpon>Refund_Report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Purchases\Receipt_Report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\Purchases\Receipt_Report.Designer.cs">
+      <DependentUpon>Receipt_Report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\Link_Rules.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\Link_Rules.Designer.cs">
+      <DependentUpon>Link_Rules.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\Customized_Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\Customized_Settings.Designer.cs">
+      <DependentUpon>Customized_Settings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\Order.cs" />
+    <Compile Include="Settings\Tax_Rules.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\Tax_Rules.Designer.cs">
+      <DependentUpon>Tax_Rules.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Miscellaneous Forms\Form_Message_Box.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Miscellaneous Forms\Form_Message_Box.Designer.cs">
+      <DependentUpon>Form_Message_Box.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Miscellaneous Forms\Input_Box.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Miscellaneous Forms\Input_Box.Designer.cs">
+      <DependentUpon>Input_Box.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Miscellaneous Forms\Form_Template.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Miscellaneous Forms\Form_Template.Designer.cs">
+      <DependentUpon>Form_Template.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\Item.cs" />
+    <Compile Include="Main\Receipt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\Receipt.Designer.cs">
+      <DependentUpon>Receipt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Financial Tools\Budget Allocation\BudgetAllocation.resx">
+      <DependentUpon>BudgetAllocation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Financial Tools\Budget Allocation\AddNewMonth.resx">
+      <DependentUpon>AddNewMonth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Financial Tools\Budget Allocation\BudgetSelector.resx">
+      <DependentUpon>BudgetSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Financial Tools\Budget Allocation\MonthlyAmountDialog.resx">
+      <DependentUpon>MonthlyAmountDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Financial Tools\Budget Allocation\MonthSelector.resx">
+      <DependentUpon>MonthSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Financial Tools\Budget Allocation\PredictModeDialog.resx">
+      <DependentUpon>PredictModeDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Financial Tools\Budget Allocation\ExportSelector.resx">
+      <DependentUpon>ExportSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Financial Tools\Payments\Cash\CashView.resx">
+      <DependentUpon>CashView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Financial Tools\Payments\Cash\CashHistory.resx">
+      <DependentUpon>CashHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Financial Tools\Payments\Cash\TransactionDialog.resx">
+      <DependentUpon>TransactionDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\OrderEntrySettings.resx">
+      <DependentUpon>OrderEntrySettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mobile Sync\ManageAssociations.resx">
+      <DependentUpon>ManageAssociations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Purchases\SortFilter.resx">
+      <DependentUpon>SortFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Purchases\OrderFilter.resx">
+      <DependentUpon>OrderFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Purchases\NewPurchases.resx">
+      <DependentUpon>NewPurchases.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\Cloud_Settings.resx">
+      <DependentUpon>Cloud_Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\Sneak_Peak.resx">
+      <DependentUpon>Sneak_Peak.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Miscellaneous Forms\Alert_Box.resx">
+      <DependentUpon>Alert_Box.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Miscellaneous Forms\Input_Box_Small.resx">
+      <DependentUpon>Input_Box_Small.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mobile Sync\SyncSettings.resx">
+      <DependentUpon>SyncSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mobile Sync\SyncSynonym.resx">
+      <DependentUpon>SyncSynonym.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mobile Sync\MobileSyncDialog.resx">
+      <DependentUpon>MobileSyncDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\Expiration_Settings.resx">
+      <DependentUpon>Expiration_Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\Refund_Settings.resx">
+      <DependentUpon>Refund_Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\Quick_Links.resx">
+      <DependentUpon>Quick_Links.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Personal Tools\Asset Manager\Asset_Manager.resx">
+      <DependentUpon>Asset_Manager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Personal Tools\Asset Manager\Add_Asset.resx">
+      <DependentUpon>Add_Asset.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Personal Tools\Asset Manager\Asset_Import.resx">
+      <DependentUpon>Asset_Import.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Personal Tools\Asset Manager\Asset_Selling.resx">
+      <DependentUpon>Asset_Selling.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Personal Tools\Calendar\Add_Edit_Calendar.resx">
+      <DependentUpon>Add_Edit_Calendar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\Authentication_Form.resx">
+      <DependentUpon>Authentication_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Personal Tools\Calendar\Email_Calendar_Range.resx">
+      <DependentUpon>Email_Calendar_Range.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Personal Tools\Calendar\Export_Filter.resx">
+      <DependentUpon>Export_Filter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Personal Tools\Calendar\Email_Add_Recipient.resx">
+      <DependentUpon>Email_Add_Recipient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Personal Tools\Calendar\Date_Change_Dialog.resx">
+      <DependentUpon>Date_Change_Dialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Personal Tools\Calendar\Print_Calendar_Range.resx">
+      <DependentUpon>Print_Calendar_Range.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Personal Tools\Calendar\Export_Calendar_Range.resx">
+      <DependentUpon>Export_Calendar_Range.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Personal Tools\Calendar\Calendar_Settings.resx">
+      <DependentUpon>Calendar_Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Personal Tools\Calendar\Select_Agenda.resx">
+      <DependentUpon>Select_Agenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Personal Tools\Contacts\Contacts.resx">
+      <DependentUpon>Contacts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Personal Tools\Contacts\ContactImpExp.resx">
+      <DependentUpon>ContactImpExp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Personal Tools\Contacts\Contact_Filter.resx">
+      <DependentUpon>Contact_Filter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Financial Tools\Investments\Investment_History.resx">
+      <DependentUpon>Investment_History.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Financial Tools\Investments\Investment_View.resx">
+      <DependentUpon>Investment_View.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Financial Tools\Investments\Investment_Visualizer.resx">
+      <DependentUpon>Investment_Visualizer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Financial Tools\Investments\With_Dep_Box.resx">
+      <DependentUpon>With_Dep_Box.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Financial Tools\Investments\Investments.resx">
+      <DependentUpon>Investments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Financial Tools\Salary Manual\Deposit_Input_Box.resx">
+      <DependentUpon>Deposit_Input_Box.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Financial Tools\Salary Manual\Manage_AutoDeposit.resx">
+      <DependentUpon>Manage_AutoDeposit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Financial Tools\Salary Manual\Manage_Prev_Period.resx">
+      <DependentUpon>Manage_Prev_Period.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Financial Tools\Salary Manual\Manage_Prev_Period_Range_Selector.resx">
+      <DependentUpon>Manage_Prev_Period_Range_Selector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Financial Tools\Salary Manual\Deposit_Paycheck.resx">
+      <DependentUpon>Deposit_Paycheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Financial Tools\Salary Manual\Manage_Companies.resx">
+      <DependentUpon>Manage_Companies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Miscellaneous Forms\Loading_Form.resx">
+      <DependentUpon>Loading_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Financial Tools\Salary Manual\Salary_Manual.resx">
+      <DependentUpon>Salary_Manual.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Financial Tools\GC_Manager.resx">
+      <DependentUpon>GC_Manager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Personal Tools\Hobby\Import_Phantom.resx">
+      <DependentUpon>Import_Phantom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Miscellaneous Forms\Tracking.resx">
+      <DependentUpon>Tracking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Personal Tools\Hobby\Hobby_MGMT_Settings.resx">
+      <DependentUpon>Hobby_MGMT_Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Financial Tools\Recurring Expense\Manage_AutoDebit.resx">
+      <DependentUpon>Manage_AutoDebit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Financial Tools\Payments\Manage_Payment.resx">
+      <DependentUpon>Manage_Payment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\Alerts_And_Windows.resx">
+      <DependentUpon>Alerts_And_Windows.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\Backup_Settings.resx">
+      <DependentUpon>Backup_Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\Personal_Information.resx">
+      <DependentUpon>Personal_Information.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\Security.resx">
+      <DependentUpon>Security.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Financial Tools\Accounts_RP.resx">
+      <DependentUpon>Accounts_RP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Personal Tools\Calendar\Calendar.resx">
+      <DependentUpon>Calendar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Personal Tools\Agenda\Agenda.resx">
+      <DependentUpon>Agenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Personal Tools\Hobby\Hobby_Management.resx">
+      <DependentUpon>Hobby_Management.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Financial Tools\Savings\Savings Helper.resx">
+      <DependentUpon>Savings Helper.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Personal Tools\SMS Alerts\Add_SMS.resx">
+      <DependentUpon>Add_SMS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Personal Tools\SMS Alerts\SMS_Alert.resx">
+      <DependentUpon>SMS_Alert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Analysis_Report.resx">
+      <DependentUpon>Analysis_Report.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Cash Flow Spreadsheet.resx">
+      <DependentUpon>Cash Flow Spreadsheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Custom Category Spreadsheet\CustomCategorySpreadsheet.resx">
+      <DependentUpon>CustomCategorySpreadsheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Custom Category Spreadsheet\CategoryGrouper.resx">
+      <DependentUpon>CategoryGrouper.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Item_Summary_Spreadsheet.resx">
+      <DependentUpon>Item_Summary_Spreadsheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Online_Orders.resx">
+      <DependentUpon>Online_Orders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visuals\Categorical_Visualizer.resx">
+      <DependentUpon>Categorical_Visualizer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visuals\Spending Timeline\Add_Shopping_List_Item.resx">
+      <DependentUpon>Add_Shopping_List_Item.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visuals\Spending Timeline\Timeline_Shopping_List.resx">
+      <DependentUpon>Timeline_Shopping_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visuals\Spending Timeline\Item_Timeline.resx">
+      <DependentUpon>Item_Timeline.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visuals\Wealth Visualizer.resx">
+      <DependentUpon>Wealth Visualizer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visuals\Expenditures.resx">
+      <DependentUpon>Expenditures.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Financial Tools\Expenditure_Warnings.resx">
+      <DependentUpon>Expenditure_Warnings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visuals\Tier_Visualizer.resx">
+      <DependentUpon>Tier_Visualizer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visuals\Month-Over-Month_Graph.resx">
+      <DependentUpon>Month-Over-Month_Graph.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Financial Tools\Payments\Payment_Information.resx">
+      <DependentUpon>Payment_Information.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Purchases\Purchases.resx">
+      <DependentUpon>Purchases.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Financial Tools\Recurring Expense\Recurring_Expenses.resx">
+      <DependentUpon>Recurring_Expenses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Financial Tools\Salary_Calculator.resx">
+      <DependentUpon>Salary_Calculator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Purchases\Receipt_Report.resx">
+      <DependentUpon>Receipt_Report.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\Link_Rules.resx">
+      <DependentUpon>Link_Rules.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\Customized_Settings.resx">
+      <DependentUpon>Customized_Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Refund_Report.resx">
+      <DependentUpon>Refund_Report.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Miscellaneous Forms\Start_Stop_Dialog.resx">
+      <DependentUpon>Start_Stop_Dialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\Tax_Rules.resx">
+      <DependentUpon>Tax_Rules.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Miscellaneous Forms\Form_Message_Box.resx">
+      <DependentUpon>Form_Message_Box.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Miscellaneous Forms\Input_Box.resx">
+      <DependentUpon>Input_Box.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Miscellaneous Forms\Form_Template.resx">
+      <DependentUpon>Form_Template.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\Receipt.resx">
+      <DependentUpon>Receipt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Miscellaneous Forms\Yes_No_Dialog.resx">
+      <DependentUpon>Yes_No_Dialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="packages.config" />
+    <None Include="Resources\Financial Journal_TemporaryKey.pfx" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Notepad-Bloc-notes-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cart %281%29.png" />
+    <None Include="Resources\edit-document.png" />
+    <None Include="Resources\calendar %285%29.png" />
+    <None Include="Resources\calendar %284%29.png" />
+    <None Include="Resources\calendar %283%29.png" />
+    <None Include="Resources\calendar %282%29.png" />
+    <None Include="Resources\calendar %281%29.png" />
+    <None Include="Resources\atm.png" />
+    <Content Include="Resources\greencredit.png" />
+    <Content Include="Resources\greenpiggy.png" />
+    <Content Include="Resources\hourglass.png" />
+    <Content Include="Resources\hourglassgreen.png" />
+    <None Include="Resources\pdf.png" />
+    <None Include="Resources\notebook %281%29.png" />
+    <Content Include="Resources\QL\QL_Budget.png" />
+    <Content Include="Resources\QL\QL_MobileSync.png" />
+    <Content Include="Resources\QL\QL_SMSAlert.png" />
+    <Content Include="Resources\QL\QL_ShoppingCart.png" />
+    <None Include="Resources\refresh-database.png" />
+    <Content Include="Resources\refundAlert.png" />
+    <Content Include="Resources\refundAlertGreen.png" />
+    <None Include="Resources\report.png" />
+    <None Include="Resources\reload1.png" />
+    <None Include="Resources\spreadsheet-with-sum-symbol.png" />
+    <Content Include="Resources\WeatherIcons\clear.png" />
+    <Content Include="Resources\WeatherIcons\cloudy.png" />
+    <Content Include="Resources\WeatherIcons\fog.png" />
+    <Content Include="Resources\WeatherIcons\partly.png" />
+    <Content Include="Resources\WeatherIcons\rain.png" />
+    <Content Include="Resources\WeatherIcons\sleet.png" />
+    <Content Include="Resources\WeatherIcons\snow.png" />
+    <Content Include="Resources\WeatherIcons\wind.png" />
+    <Content Include="WinSCP.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\web-settings-confirmed.png" />
+    <None Include="Resources\piggy-bank.png" />
+    <None Include="Resources\supermarket-atm.png" />
+    <None Include="Resources\icon.png" />
+    <None Include="Resources\package.png" />
+    <None Include="Resources\garbage.png" />
+    <None Include="Resources\list.png" />
+    <None Include="Resources\add-user.png" />
+    <None Include="Resources\add-file-symbol.png" />
+    <None Include="Resources\32view.png" />
+    <None Include="Resources\32receive.png" />
+    <None Include="Resources\32garbage.png" />
+    <Content Include="Resources\addphantom.png" />
+    <None Include="Resources\ajax-loader %281%29.gif" />
+    <Content Include="Resources\box.png" />
+    <None Include="Resources\calculator.png" />
+    <Content Include="Resources\changedate.png" />
+    <Content Include="Resources\checked-box.png" />
+    <Content Include="Resources\clock.png" />
+    <Content Include="Resources\ck_box.png" />
+    <Content Include="Resources\ck_uncheck_box.png" />
+    <Content Include="Resources\Contact-Icons\C_Work.png" />
+    <Content Include="Resources\Contact-Icons\C_Family.png" />
+    <Content Include="Resources\Contact-Icons\C_Friends.png" />
+    <Content Include="Resources\Contact-Icons\C_Other.png" />
+    <Content Include="Resources\Contact-Icons\C_Service.png" />
+    <Content Include="Resources\contacts.png" />
+    <Content Include="Resources\contacts_green.png" />
+    <Content Include="Resources\duplicate.png" />
+    <None Include="Resources\paper-airplane-outline.png" />
+    <Content Include="Resources\edit_off.png" />
+    <Content Include="Resources\edit_on.png" />
+    <Content Include="Resources\floppy.png" />
+    <Content Include="Resources\gbox.png" />
+    <None Include="Resources\map.png" />
+    <None Include="Resources\import.png" />
+    <None Include="Resources\import %281%29.png" />
+    <None Include="Resources\highlighter.png" />
+    <None Include="Resources\highlighter_Yel.png" />
+    <None Include="Resources\gift-card.png" />
+    <None Include="Resources\gift.png" />
+    <Content Include="Resources\gc_icon.png" />
+    <Content Include="Resources\greenclock.png" />
+    <Content Include="Resources\manager.png" />
+    <Content Include="Resources\playlist.png" />
+    <None Include="Resources\playlist1.png" />
+    <Content Include="Resources\QL\QL_Agenda.png" />
+    <Content Include="Resources\QL\QL_Calendar.png" />
+    <Content Include="Resources\QL\QL_deposit.png" />
+    <Content Include="Resources\QL\QL_Hobby.png" />
+    <Content Include="Resources\QL\QL_Lookup.png" />
+    <Content Include="Resources\QL\QL_Online.png" />
+    <Content Include="Resources\QL\QL_Payments.png" />
+    <Content Include="Resources\QL\QL_Purchases.png" />
+    <Content Include="Resources\QL\QL_Settings.png" />
+    <Content Include="Resources\QL\QL_SneakPeek.png" />
+    <Content Include="Resources\rain-green.png" />
+    <Content Include="Resources\rain.png" />
+    <Content Include="Resources\swapred.png" />
+    <Content Include="Resources\delete_hobby.png" />
+    <Content Include="Resources\swap.png" />
+    <Content Include="Resources\point-of-sale-terminal-pos.png" />
+    <Content Include="Resources\posgreen.png" />
+    <Content Include="Resources\right-arrow.png" />
+    <None Include="Resources\three-circling-arrows.png" />
+    <None Include="Resources\settings.png" />
+    <Content Include="Resources\tick.png" />
+    <Content Include="Resources\undo.png" />
+    <Content Include="Resources\undo_grey.png" />
+    <Content Include="Resources\wallet.png" />
+    <None Include="Icons8-Ios7-Finance-Money-Box.ico" />
+    <Content Include="Objects\Icons8-Ios7-Finance-Money-Box.ico" />
+    <Content Include="Resources\add_calendar.png" />
+    <Content Include="Resources\interact.png" />
+    <Content Include="Resources\download.png" />
+    <Content Include="Resources\minus.png" />
+    <Content Include="Resources\plus.png" />
+    <Content Include="Resources\send-mail.png" />
+    <Content Include="Resources\unlock.png" />
+    <Content Include="Resources\edit_smaller.png" />
+    <Content Include="Resources\exclamation-mark.png" />
+    <Content Include="Resources\save.png" />
+    <Content Include="Resources\update-cloud.png" />
+    <Content Include="Resources\upload.png" />
+    <Content Include="Resources\up_arrow.png" />
+    <None Include="Resources\printer.png" />
+    <None Include="Resources\printer %281%29.png" />
+    <None Include="Resources\error.png" />
+    <None Include="Resources\excel_ico.png" />
+    <None Include="Resources\131.gif" />
+    <None Include="Resources\131 %282%29.gif" />
+    <None Include="Resources\6.gif" />
+    <None Include="Resources\6 %281%29.gif" />
+    <Content Include="Resources\down_arrow.png" />
+    <Content Include="Resources\threegreen.png" />
+    <Content Include="Resources\threewhite.png" />
+    <Content Include="Resources\twogreen.png" />
+    <Content Include="Resources\twowhite.png" />
+    <None Include="Resources\warning-exclamation-sign-in-a-circle-with-verification-mark.png" />
+    <None Include="Resources\bar-chart-reload.png" />
+    <None Include="Resources\calendar-with-a-clock-time-tools.png" />
+    <Content Include="Resources\downarrow.png" />
+    <Content Include="Resources\checked.png" />
+    <None Include="Resources\tax.png" />
+    <None Include="Resources\checkout.png" />
+    <Content Include="Resources\discount.png" />
+    <Content Include="Resources\edit.png" />
+    <Content Include="Resources\fourgreen.png" />
+    <Content Include="Resources\fourwhite.png" />
+    <Content Include="Resources\group.png" />
+    <None Include="Resources\notebook.png" />
+    <None Include="Resources\improve-incomes.png" />
+    <Content Include="Resources\memo.png" />
+    <None Include="Resources\memo1.png" />
+    <Content Include="Resources\na.png" />
+    <Content Include="Resources\onegreen.png" />
+    <Content Include="Resources\onewhite.png" />
+    <Content Include="Resources\open-book.png" />
+    <Content Include="Resources\start.png" />
+    <Content Include="Resources\stop.png" />
+    <None Include="Resources\unlocked.png" />
+    <None Include="Resources\reload.png" />
+    <None Include="Resources\file.png" />
+    <None Include="Resources\delete.png" />
+    <None Include="Resources\double-sided-eraser.png" />
+    <None Include="Resources\double-sided-eraser %281%29.png" />
+    <None Include="Resources\add.png" />
+    <None Include="Resources\add-to-cart.png" />
+    <None Include="Resources\add-notes.png" />
+    <None Include="Resources\eye.png" />
+    <None Include="Resources\left-arrow.png" />
+    <Content Include="Resources\magnifier.png" />
+    <None Include="Resources\question-circular-button.png" />
+    <Content Include="Resources\refund_img.png" />
+    <None Include="Resources\Icons8-Ios7-Finance-Money-Box.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ComboCheckBox\CheckBoxComboBox\CheckBoxComboBox.csproj">
+      <Project>{70A25201-8EA4-48F8-A4A6-ED13ADF8823C}</Project>
+      <Name>CheckBoxComboBox</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PieChart\PieChart\PieChart.csproj">
+      <Project>{696e929a-6a4a-4c6d-a8b2-c4f25f781940}</Project>
+      <Name>PieChart</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TimePicker\TimePicker.csproj">
+      <Project>{076BC68C-1AB7-44CA-8403-1932B4E2FDE7}</Project>
+      <Name>TimePicker</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ToggleSwitch\ToggleSwitch\ToggleSwitch.csproj">
+      <Project>{49B88FFA-F02C-4709-BA65-9F8996444ECD}</Project>
+      <Name>ToggleSwitch</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,25 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PieChart", "PieChart\PieChart.csproj", "{696E929A-6A4A-4C6D-A8B2-C4F25F781940}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{905282F3-DD62-4D61-A85C-16427D755C4E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{696E929A-6A4A-4C6D-A8B2-C4F25F781940}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{696E929A-6A4A-4C6D-A8B2-C4F25F781940}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{696E929A-6A4A-4C6D-A8B2-C4F25F781940}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{696E929A-6A4A-4C6D-A8B2-C4F25F781940}.Release|Any CPU.Build.0 = Release|Any CPU
+		{905282F3-DD62-4D61-A85C-16427D755C4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{905282F3-DD62-4D61-A85C-16427D755C4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{905282F3-DD62-4D61-A85C-16427D755C4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{905282F3-DD62-4D61-A85C-16427D755C4E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
